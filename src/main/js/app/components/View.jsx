@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export default function View () {
 	return (
-		<div>
+		<div className="app-view">
 			App View.
 		</div>
 	);

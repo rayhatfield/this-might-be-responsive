@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A responsive TMBO client",
   "main": "index.js",
+  "files": [
+      "dist"
+  ],
   "scripts": {
     "start": "webpack-dev-server"
   },
@@ -23,13 +26,15 @@
     "babel-preset-env": "^1.4.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
-    "baggage-loader": "^0.2.4",
+    "baggage-loader": "jsg2021/baggage-loader",
     "css-loader": "^0.28.1",
+    "extract-text-webpack-plugin": "^2.1.0",
     "node-sass": "^4.5.2",
     "postcss-loader": "^2.0.5",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router": "^4.1.1",
+    "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.17.0",
     "webpack": "^2.5.1",
