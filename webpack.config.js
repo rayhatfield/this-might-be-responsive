@@ -2,6 +2,7 @@ const path = require('path');
 
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 exports = module.exports = {
 	entry: {
@@ -86,6 +87,9 @@ exports = module.exports = {
 			filename: 'resources/styles.css',
 			allChunks: true,
 			disable: false
+		}),
+		new HtmlWebpackPlugin({
+			template: path.resolve(__dirname, 'src/main/index.html')
 		})
 	].filter(x => x)
 };

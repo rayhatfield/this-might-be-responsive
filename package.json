@@ -4,7 +4,7 @@
   "description": "A responsive TMBO client",
   "main": "index.js",
   "files": [
-      "dist"
+    "dist"
   ],
   "scripts": {
     "start": "webpack-dev-server"
@@ -29,6 +29,7 @@
     "baggage-loader": "jsg2021/baggage-loader",
     "css-loader": "^0.28.1",
     "extract-text-webpack-plugin": "^2.1.0",
+    "html-webpack-plugin": "^2.28.0",
     "node-sass": "^4.5.2",
     "postcss-loader": "^2.0.5",
     "react": "^15.5.4",

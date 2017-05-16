@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 export default function View () {
 	return (
 		<div className="app-view">
-			App View.
+			<div className="splash">
+				[ this might be offensive ]
+			</div>
 		</div>
 	);
 }
