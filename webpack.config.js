@@ -22,6 +22,10 @@ exports = module.exports = {
 	},
 
 	resolve: {
+		modules: [
+			path.resolve(__dirname, 'src/main/js'),
+			path.resolve(__dirname, 'node_modules')
+		],
 		extensions: ['.jsx', '.js']
 	},
 
