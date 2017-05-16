@@ -7,7 +7,8 @@
     "dist"
   ],
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "prepublish": "webpack"
   },
   "repository": {
     "type": "git",
