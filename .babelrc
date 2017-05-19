@@ -1,4 +1,13 @@
 {
 	"sourceMaps": "both",
-	"presets": ["env", "stage-1", "react"]
+	"presets": [
+		["env", {
+			"modules": false,
+			"targets": {
+				"browsers": ["> 1% in US", "last 2 versions", "safari >= 6"]
+			}
+		}],
+		"stage-1",
+		"react"
+	]
 }

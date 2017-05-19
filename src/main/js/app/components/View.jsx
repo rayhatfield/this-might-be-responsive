@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-import UploadForm from 'upload/components/Form';
+import {View as Login} from 'login';
 
 export default function View () {
 	return (
@@ -9,7 +9,7 @@ export default function View () {
 			<div className="splash">
 				[ this might be offensive ]
 			</div>
-			<UploadForm />
+			<Login />
 		</div>
 	);
 }

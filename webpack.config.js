@@ -16,7 +16,6 @@ exports = module.exports = {
 	},
 
 	devServer: {
-		contentBase: path.resolve(__dirname, 'src/main/'),
 		host: '0.0.0.0', // allow access from other devices via ip
 		disableHostCheck: true
 	},
