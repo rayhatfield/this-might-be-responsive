@@ -1,0 +1,12 @@
+.image-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	& > * {
+		flex: 0 0 calc(25% - 1rem);
+	}
+}

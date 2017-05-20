@@ -6,7 +6,7 @@ import {View as Login} from 'login';
 import {View as Images} from 'images';
 import {View as Discussions} from 'discussions';
 
-import NotFound from './NotFound';
+import {NotFound} from 'common';
 
 export default function Routes () {
 	return (

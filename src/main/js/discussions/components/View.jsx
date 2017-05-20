@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Switch, Route} from 'react-router-dom';
 
-import {NotFound} from 'app';
+import {NotFound} from 'common';
 
 import List from './List';
 import Detail from './Detail';
@@ -13,13 +13,9 @@ View.propTypes = {
 	})
 };
 
-export default function View ({match}) {
-
-	const {params: {url}} = match;
-
+export default function View ({match: {url}}) {
 	return (
 		<div className="discussions">
-			[ discussions ]
 			<Switch>
 				<Route exact path={url} component={List} />
 				<Route exact path={`${url}/:id`} component={Detail} />
