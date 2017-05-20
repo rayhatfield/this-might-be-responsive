@@ -8,8 +8,11 @@ export default function App () {
 	return (
 		<div className="app-view">
 			<Header />
-			<Routes />
+			<main>
+				<Routes />
+			</main>
 			<Footer />
 		</div>
+		
 	);
 }
