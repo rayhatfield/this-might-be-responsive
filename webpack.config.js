@@ -11,7 +11,7 @@ exports = module.exports = {
 
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'js/[name].js',
+		filename: 'js/[name]-[hash].js',
 		publicPath: '/'
 	},
 
@@ -89,7 +89,7 @@ exports = module.exports = {
 
 	plugins: [
 		new ExtractTextPlugin({
-			filename: 'resources/styles.css',
+			filename: 'resources/styles-[hash].css',
 			allChunks: true,
 			disable: false
 		}),
