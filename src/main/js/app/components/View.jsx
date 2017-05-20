@@ -1,15 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import {HashRouter as Router} from 'react-router-dom';
 
-import {View as Login} from 'login';
+import App from './App';
 
 export default function View () {
 	return (
-		<div className="app-view">
-			<div className="splash">
-				[ this might be offensive ]
-			</div>
-			<Login />
-		</div>
+		<Router>
+			<App />
+		</Router>
 	);
 }
