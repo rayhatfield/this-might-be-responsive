@@ -4,3 +4,11 @@ body {
 	background: #336;
 	color: #ccf;
 }
+
+a {
+	color: inherit;
+
+	&.active {
+		text-decoration: none;
+	}
+}

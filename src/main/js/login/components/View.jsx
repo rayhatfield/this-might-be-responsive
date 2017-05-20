@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import {getClient} from '../../util/';
+import {getClient} from 'utils';
 
 import Form from './Form';
 
