@@ -1,0 +1,9 @@
+.image-detail {
+	margin: 0 -2rem; // counter the app padding to go full width
+
+	img {
+		max-width: 100%;
+		display: block;
+		margin: 0 auto;
+	}
+}
