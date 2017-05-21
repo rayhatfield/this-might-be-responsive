@@ -24,6 +24,14 @@ class List extends React.Component {
 		return loading ? <Loading /> : (
 			<ul className="image-list">
 				{items.map( item => <li key={item.id}><ListItem item={item} /></li> )}
+
+				{Array.from({length: 10}).map( (_, index) => (
+					// tacking on empty items solves a problem where
+					// orphans in the last row of the flex container
+					// grow to fill the horizontal space, resulting in
+					// different sized (larger) items in the last row.
+					<li key={index} className="flex-filler" />
+				))}
 			</ul>
 		);
 	}
