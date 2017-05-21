@@ -1,6 +1,8 @@
 .image-list-item {
 	margin: 0;
-	margin-bottom: 1rem;
+	padding: 0.5rem;
+	background: white;
+	border-radius: 10px;
 
 	.thumb {
 		position: relative;
@@ -17,5 +19,9 @@
 			height: 100%;
 			object-fit: cover;
 		}
+	}
+
+	figcaption {
+		display: none;
 	}
 }
