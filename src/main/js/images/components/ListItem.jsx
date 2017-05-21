@@ -7,7 +7,7 @@ ListItem.propTypes = {
 	match: PropTypes.shape({
 		url: PropTypes.string.isRequired
 	}),
-	
+
 	item: PropTypes.shape({
 		id: PropTypes.number.isRequired,
 		filename: PropTypes.string.isRequired,
@@ -22,7 +22,11 @@ function ListItem ({item: {id, filename, link_thumb, vote_good, vote_bad}, match
 		<Link to={`${match.url}/${id}`}>
 			<figure className="image-list-item">
 				<div className="thumb"><img src={link_thumb} /></div>
-				<figcaption>{filename} [+ {vote_good}] [- {vote_bad}]</figcaption>
+				<figcaption>
+					<div className="filename">{filename}</div>
+					<div className="votes good">{vote_good}</div>
+					<div className="votes bad">{vote_bad}</div>
+				</figcaption>
 			</figure>
 		</Link>
 	);
