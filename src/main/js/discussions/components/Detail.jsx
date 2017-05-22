@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Thread from './Thread';
+
 Detail.propTypes = {
 	match: PropTypes.shape({
 		params: PropTypes.shape({
@@ -12,6 +14,8 @@ Detail.propTypes = {
 export default function Detail ({match}) {
 	const {params: {id}} = match;
 	return (
-		<div>[ detail: {id} ]</div>
+		<div>
+			<Thread id={id} />
+		</div>
 	);
 }

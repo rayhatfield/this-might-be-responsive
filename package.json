@@ -47,6 +47,7 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "autolinker": "^1.4.3",
     "babel-polyfill": "^6.23.0",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",

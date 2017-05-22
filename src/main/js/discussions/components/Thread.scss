@@ -1,0 +1,21 @@
+.thread {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	background: #ccf;
+	color: #003;
+	font-family: verdana, sans-serif;
+	font-size: 0.6875rem;
+	line-height: 2;
+	max-width: 640px;
+
+	& > * {
+		margin-bottom: 1rem;
+		white-space: pre-line;
+		padding: 1rem;
+
+		&:nth-child(2n) {
+			background: rgba(0, 0, 0, 0.05);
+		}
+	}
+}

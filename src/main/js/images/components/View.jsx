@@ -4,6 +4,8 @@ import {Switch, Route} from 'react-router-dom';
 
 import {NotFound} from 'common';
 
+import {Detail as Comments} from 'discussions'
+
 import List from './List';
 import Detail from './Detail';
 
@@ -19,6 +21,7 @@ export default function View ({match: {url}}) {
 			<Switch>
 				<Route exact path={url} component={List} />
 				<Route exact path={`${url}/:id`} component={Detail} />
+				<Route exact path={`${url}/:id/comments`} component={Comments} />
 				<Route component={NotFound} />
 			</Switch>
 		</div>

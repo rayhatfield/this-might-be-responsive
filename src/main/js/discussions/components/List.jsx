@@ -19,10 +19,10 @@ class List extends React.Component {
 	}
 
 	render () {
-		const {discussionsState: {loading, items = []}} = this.props;
+		const {discussionsState: {loading, topics = []}} = this.props;
 		return loading ? <Loading /> : (
 			<ul className="topic-list">
-				{items.map( item => <li key={item.id}><ListItem item={item} /></li> )}
+				{topics.map( item => <li key={item.id}><ListItem item={item} /></li> )}
 			</ul>
 		);
 	}
