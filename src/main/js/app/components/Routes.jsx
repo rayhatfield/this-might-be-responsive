@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch} from 'react-router-dom';
+import {Switch, Redirect} from 'react-router-dom';
 
 import {View as About} from 'about';
 import {View as Login, Logout} from 'login';
@@ -17,6 +17,7 @@ export default function Routes () {
 			<Route path="/discussions" component={Discussions} />
 			<Route path="/logout" component={Logout} />
 			<Route path="/about" component={About} />
+			<Redirect from="/" to="/images"/>
 			<Route unauthenticated component={NotFound} />
 		</Switch>
 	);
