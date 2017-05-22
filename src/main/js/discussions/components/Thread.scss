@@ -10,10 +10,6 @@
 	max-width: 640px;
 
 	& > * {
-		margin-bottom: 1rem;
-		white-space: pre-line;
-		padding: 1rem;
-
 		&:nth-child(2n) {
 			background: rgba(0, 0, 0, 0.05);
 		}
