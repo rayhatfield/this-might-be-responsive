@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="30" height="10" viewBox="0 0 30 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g>
+		<circle id="dot-1" r="3" cx="5" cy="5" fill="#94aab8" opacity="0"/>
+		<circle id="dot-2" r="3" cx="14" cy="5" fill="#94aab8" opacity="0"/>
+		<circle id="dot-3" r="3" cx="23" cy="5" fill="#94aab8" opacity="0"/>
+	</g>
+	<animate begin="0s" attributeName="opacity" from="0" to="0" dur="0.7s" fill="freeze" repeatCount="indefinite" xlink:href="#dot-1" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1" keyTimes="0; .5; 1" values="0; 1; 0"/>
+	<animate begin="0.1s" attributeName="opacity" from="0" to="0" dur="0.7s" fill="freeze" repeatCount="indefinite" xlink:href="#dot-2" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1" keyTimes="0; .5; 1" values="0; 1; 0"/>
+	<animate begin="0.2s" attributeName="opacity" from="0" to="0" dur="0.7s" fill="freeze" repeatCount="indefinite" xlink:href="#dot-3" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1" keyTimes="0; .5; 1" values="0; 1; 0"/>
+</svg>
