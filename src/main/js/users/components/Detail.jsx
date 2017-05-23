@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import {Loading, NotFound} from 'common';
 
@@ -55,7 +56,7 @@ class Detail extends React.Component {
 
 		return (
 			<div className="">
-				<div>{user.username} has been around since {user.created}</div>
+				<div>{user.username} has been around for <time title={user.created} dateTime={user.created}>{moment(user.created).fromNow(true)}</time></div>
 			</div>
 		);
 	}
