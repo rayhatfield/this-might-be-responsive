@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 import {Loading, NotFound} from 'common';
 
@@ -61,9 +62,12 @@ class Detail extends React.PureComponent {
 		}
 
 		return (
-			<div className="image-detail">
+			<figure className="image-detail">
+				<figcaption>
+					<Link rel="author" to={`/users/${item.userid}`}>{item.username}</Link>
+				</figcaption>
 				<img src={item.link_file} />
-			</div>
+			</figure>
 		);
 	}
 }
