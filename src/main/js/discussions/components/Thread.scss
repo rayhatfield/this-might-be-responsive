@@ -1,6 +1,4 @@
 .thread {
-	list-style: none;
-	padding: 0;
 	margin: 0 auto;
 	background: #ccf;
 	color: #003;
@@ -8,6 +6,18 @@
 	font-size: 0.6875rem;
 	line-height: 2;
 	max-width: 640px;
+
+	header {
+		background: #003;
+		color: #ccf;
+		padding: 0.5em 1em;
+
+		h1 {
+			font-size: inherit;
+			font-weight: bold;
+			margin: 0;
+		}
+	}
 
 	& > * {
 		&:nth-child(2n) {

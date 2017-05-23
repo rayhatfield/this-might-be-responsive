@@ -31,12 +31,16 @@ class Thread extends React.Component {
 		const {loading, commentsByThreadId = {}, id} = this.props;
 
 		const comments = commentsByThreadId[id] || [];
+		const title = comments.length > 0 ? comments[0].filename : '';
 
 		return (
 			loading
 			? <Loading />
 			: (
 				<section className="thread">
+					<header>
+						<h1>{title}</h1>
+					</header>
 					{comments.map( item => <Comment key={item.id} item={item} />)}
 				</section>
 			)
