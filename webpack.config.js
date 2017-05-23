@@ -1,8 +1,12 @@
 const path = require('path');
 
+const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const ENV = process.env.NODE_ENV || 'development';
+const PROD = ENV === 'production';
 
 exports = module.exports = {
 	entry: {
@@ -101,6 +105,9 @@ exports = module.exports = {
 			filename: 'resources/styles-[hash].css',
 			allChunks: true,
 			disable: false
+		}),
+		new webpack.optimize.UglifyJsPlugin({
+			compress: PROD
 		}),
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, 'src/main/index.html')
