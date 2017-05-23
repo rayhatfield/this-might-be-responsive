@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import moment from 'moment';
 
 import {Loading, NotFound} from 'common';
 
@@ -49,7 +50,7 @@ class Detail extends React.PureComponent {
 	}
 
 	render () {
-		const {imagesState: {loading, items = []}} = this.props;
+		const {imagesState: {loading, items = []}, match: {url}} = this.props;
 		const id = getId(this.props);
 		const item = this.state.item || items.find(i => i.id == id);
 
@@ -64,7 +65,15 @@ class Detail extends React.PureComponent {
 		return (
 			<figure className="image-detail">
 				<figcaption>
-					<Link rel="author" to={`/users/${item.userid}`}>{item.username}</Link>
+					<div className="title">{item.filename}</div>
+					<div className="meta">
+						<div>uploaded by <Link rel="author" to={`/users/${item.userid}`}>{item.username}</Link> <time title={item.timestamp}>{moment(item.timestamp).fromNow()}</time></div>
+						<div className="votes">
+							<span className="good">{item.vote_good}</span>
+							<span className="bad">{item.vote_bad}</span>
+						</div>
+						<Link to={`${url}/comments`}>comments <span className="comment-count">{item.comments}</span></Link>
+					</div>
 				</figcaption>
 				<img src={item.link_file} />
 			</figure>
