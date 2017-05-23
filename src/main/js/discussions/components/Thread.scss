@@ -7,18 +7,6 @@
 	line-height: 2;
 	max-width: 640px;
 
-	header {
-		background: #003;
-		color: #ccf;
-		padding: 0.5em 1em;
-
-		h1 {
-			font-size: inherit;
-			font-weight: bold;
-			margin: 0;
-		}
-	}
-
 	& > * {
 		&:nth-child(2n) {
 			background: rgba(0, 0, 0, 0.05);

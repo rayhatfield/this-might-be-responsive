@@ -6,6 +6,7 @@ import {Loading} from 'common';
 import {loadThread} from '../actions';
 
 import Comment from './Comment';
+import Header from './Header';
 
 
 class Thread extends React.Component {
@@ -31,16 +32,13 @@ class Thread extends React.Component {
 		const {loading, commentsByThreadId = {}, id} = this.props;
 
 		const comments = commentsByThreadId[id] || [];
-		const title = comments.length > 0 ? comments[0].filename : '';
-
+		
 		return (
 			loading
 			? <Loading />
 			: (
 				<section className="thread">
-					<header>
-						<h1>{title}</h1>
-					</header>
+					<Header id={id} />
 					{comments.map( item => <Comment key={item.id} item={item} />)}
 				</section>
 			)
