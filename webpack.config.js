@@ -53,6 +53,15 @@ exports = module.exports = {
 				use: 'babel-loader'
 			},
 			{
+				test: /\.(ico|gif|png|jpg|svg)(\?.*)?$/,
+				loader: 'url-loader',
+				options: {
+					limit: 50,
+					name: 'resources/images/[hash].[ext]',
+					mimeType: 'image/[ext]'
+				}
+			},
+			{
 				test: /\.(s?)css$/,
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
