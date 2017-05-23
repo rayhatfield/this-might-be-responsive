@@ -1,10 +1,10 @@
 .image-list {
 	list-style: none;
 	padding: 0;
-	margin: 0;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	margin: 0 -1rem; // counter the list item padding so the edges line up
 
 	& > * {
 		flex: 1 1 200px;
