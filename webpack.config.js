@@ -54,7 +54,7 @@ exports = module.exports = {
 			},
 			{
 				test: /\.(ico|gif|png|jpg|svg)(\?.*)?$/,
-				loader: 'url-loader',
+				loader: 'url-loader', // consider using file loader here. (do we really want data uris?)
 				options: {
 					limit: 50,
 					name: 'resources/images/[hash].[ext]',
