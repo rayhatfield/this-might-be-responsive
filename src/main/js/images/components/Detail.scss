@@ -1,6 +1,10 @@
 .image-detail {
 	margin: 0 -2rem; // counter the app padding to go full width
 
+	@media (max-width: 768px) {
+		margin: 0; // app margins go away at 768
+	}
+
 	img {
 		max-width: 100%;
 		display: block;
