@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
+import moment from 'moment';
 
 import {link} from 'autolinker';
 
@@ -19,8 +21,8 @@ export default function Comment ({item}) {
 		<article className="comment">
 			<div className="content" dangerouslySetInnerHTML={{__html: link(item.comment)}} />
 			<footer>
-				<div>{item.username}</div>
-				<time>{item.timestamp}</time>
+				<div><Link to={`/users/${item.userid}`} rel="author">{item.username}</Link></div>
+				<time title={item.timestamp}>{moment(item.timestamp).fromNow()}</time>
 			</footer>
 		</article>
 	);
