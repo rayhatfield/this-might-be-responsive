@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Loading} from 'common';
+import {Loading, NotFound} from 'common';
 
 import {getUser} from '../actions';
 
@@ -45,7 +45,19 @@ class Detail extends React.Component {
 		const {loading, byId = {}} = this.props;
 		const user = byId[getId(this.props)] || {};
 
-		return loading ? <Loading /> : <div>{user.username}</div>;
+		if (loading) {
+			return <Loading />;
+		}
+
+		if (!user) {
+			return <NotFound />;
+		}
+
+		return (
+			<div className="">
+				<div>{user.username} has been around since {user.created}</div>
+			</div>
+		);
 	}
 }
 
