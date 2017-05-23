@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Redirect} from 'react-router-dom';
 
+import {Loading} from 'common';
+
 import {login as loginAction} from '../actions';
 import Form from './Form';
 
@@ -27,7 +29,7 @@ class View extends React.Component {
 			: (
 				<div className="login-view">
 					<Form onSubmit={this.onSubmit} />
-					{loading && '[ Loading ]'}
+					{loading && <Loading />}
 					<div>{attempts}</div>
 					<div>{userid}</div>
 				</div>
