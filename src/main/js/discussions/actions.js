@@ -5,6 +5,8 @@ import {
 	RECEIVE_DISCUSSIONS,
 	REQUEST_THREAD,
 	RECEIVE_THREAD,
+	POST_COMMENT_START,
+	POST_COMMENT_COMPLETE
 } from './reducer';
 
 export const loadDiscussions = () => (
@@ -15,6 +17,20 @@ export const loadDiscussions = () => (
 		getClient().loadDiscussions()
 			.then( result => dispatch({
 				type: RECEIVE_DISCUSSIONS,
+				payload: result
+			}));
+	}
+);
+
+export const postComment = (threadid, comment) => (
+	(dispatch) => {
+		dispatch({
+			type: POST_COMMENT_START
+		});
+		getClient().postComment(threadid, comment)
+			.then( result => dispatch({
+				type: POST_COMMENT_COMPLETE,
+				threadid,
 				payload: result
 			}));
 	}

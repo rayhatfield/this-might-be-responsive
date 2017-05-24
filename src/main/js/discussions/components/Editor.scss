@@ -1,0 +1,15 @@
+.comment-editor {
+	padding: 1rem;
+
+	textarea {
+		width: 100%;
+		min-height: 12rem;
+		padding: 1rem;
+		border: none;
+		border-radius: 3px;
+	}
+
+	.controls {
+		text-align: right;
+	}
+}

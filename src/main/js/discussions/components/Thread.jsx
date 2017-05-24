@@ -6,6 +6,7 @@ import {Loading} from 'common';
 import {loadThread} from '../actions';
 
 import Comment from './Comment';
+import Editor from './Editor';
 import Header from './Header';
 
 
@@ -32,7 +33,7 @@ class Thread extends React.Component {
 		const {loading, commentsByThreadId = {}, id} = this.props;
 
 		const comments = commentsByThreadId[id] || [];
-		
+
 		return (
 			loading
 			? <Loading />
@@ -40,6 +41,7 @@ class Thread extends React.Component {
 				<section className="thread">
 					<Header id={id} />
 					{comments.map( item => <Comment key={item.id} item={item} />)}
+					<Editor threadId={id} />
 				</section>
 			)
 		);
