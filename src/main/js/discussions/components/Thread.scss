@@ -1,15 +1,4 @@
 .thread {
 	margin: 0 auto;
-	background: #ccf;
-	color: #003;
-	font-family: verdana, sans-serif;
-	font-size: 0.6875rem;
-	line-height: 2;
-	max-width: 640px;
-
-	& > * {
-		&:nth-child(2n) {
-			background: rgba(0, 0, 0, 0.05);
-		}
-	}
+	max-width: 540px;
 }

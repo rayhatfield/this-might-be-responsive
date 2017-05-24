@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link, withRouter} from 'react-router-dom';
 
+import {UserLink} from 'common';
+
 ListItem.propTypes = {
 	match: PropTypes.shape({
 		url: PropTypes.string.isRequired
@@ -14,13 +16,15 @@ ListItem.propTypes = {
 	}).isRequired
 };
 
-function ListItem ({item: {id, filename, comments}, match}) {
+function ListItem ({item: {id, filename, comments, userid, username}, match}) {
 	return (
-		<Link to={`${match.url}/${id}`}>
-			<div className="topic-list-item">
-				{filename} [{comments}]
+		<div className="topic-list-item">
+			<Link to={`${match.url}/${id}`}>{filename}</Link>
+			<div>
+				<UserLink userid={userid}>{username}</UserLink>
 			</div>
-		</Link>
+			<div>{comments} comments</div>
+		</div>
 	);
 }
 

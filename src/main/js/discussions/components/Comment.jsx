@@ -22,7 +22,7 @@ export default function Comment ({item}) {
 			<div className="content" dangerouslySetInnerHTML={{__html: link(item.comment)}} />
 			<footer>
 				<div><Link to={`/users/${item.userid}`} rel="author">{item.username}</Link></div>
-				<time title={item.timestamp}>{moment(item.timestamp).fromNow()}</time>
+				<time title={item.timestamp} dateTime={item.timestamp}>{moment(item.timestamp).fromNow()}</time>
 			</footer>
 		</article>
 	);

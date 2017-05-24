@@ -29,7 +29,7 @@ export default class LoginForm extends React.PureComponent {
 			<form className="login-form" onSubmit={this.onSubmit}>
 				<input name="username" value={username} onChange={this.onChange} />
 				<input name="password" value={password} type="password" onChange={this.onChange} />
-				<button>Go</button>
+				<button>Log In</button>
 			</form>
 		);
 	}

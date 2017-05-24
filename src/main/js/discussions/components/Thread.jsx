@@ -32,7 +32,7 @@ class Thread extends React.Component {
 
 		const {loading, commentsByThreadId = {}, id} = this.props;
 
-		const comments = commentsByThreadId[id] || [];
+		const comments = (commentsByThreadId[id] || []).filter(c => c.comment);
 
 		return (
 			loading
