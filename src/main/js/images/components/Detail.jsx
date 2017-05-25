@@ -7,6 +7,8 @@ import {Loading, NotFound} from 'common';
 
 import {getUpload} from '../actions';
 
+import NextLink from './NextLink';
+
 const getId = ({match}) => match.params.id;
 
 class Detail extends React.PureComponent {
@@ -65,6 +67,7 @@ class Detail extends React.PureComponent {
 		return (
 			<figure className="image-detail">
 				<figcaption>
+					<NextLink currentId={id} />
 					<div className="title">{item.filename}</div>
 					<div className="meta">
 						<div>uploaded by <Link rel="author" to={`/users/${item.userid}`}>{item.username}</Link> <time title={item.timestamp}>{moment(item.timestamp).fromNow()}</time></div>
@@ -74,6 +77,7 @@ class Detail extends React.PureComponent {
 							<Link to={`${url}/comments`}>comments <span className="comment-count">{item.comments}</span></Link>
 						</div>
 					</div>
+					<NextLink currentId={id} previous />
 				</figcaption>
 				<img src={item.link_file} />
 			</figure>
