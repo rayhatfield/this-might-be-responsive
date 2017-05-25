@@ -6,4 +6,25 @@
 		display: block;
 		margin: 0 auto;
 	}
+
+	figcaption {
+		position: relative;
+		background: #003;
+		padding: 1rem;
+
+		.title {
+			font-weight: bold;
+		}
+
+		.meta {
+			opacity: 0.75;
+			font-size: 0.875rem;
+		}
+
+		.stats {
+			position: absolute;
+			right: 1rem;
+			top: 1rem;
+		}
+	}
 }

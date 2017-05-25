@@ -68,11 +68,11 @@ class Detail extends React.PureComponent {
 					<div className="title">{item.filename}</div>
 					<div className="meta">
 						<div>uploaded by <Link rel="author" to={`/users/${item.userid}`}>{item.username}</Link> <time title={item.timestamp}>{moment(item.timestamp).fromNow()}</time></div>
-						<div className="votes">
+						<div className="stats">
 							<span className="good">{item.vote_good}</span>
 							<span className="bad">{item.vote_bad}</span>
+							<Link to={`${url}/comments`}>comments <span className="comment-count">{item.comments}</span></Link>
 						</div>
-						<Link to={`${url}/comments`}>comments <span className="comment-count">{item.comments}</span></Link>
 					</div>
 				</figcaption>
 				<img src={item.link_file} />

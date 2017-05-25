@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import moment from 'moment';
 
-import {Loading} from 'common';
+import {Loading, UserLink} from 'common';
 
 class Header extends React.Component {
 
@@ -34,7 +35,9 @@ class Header extends React.Component {
 		return (
 			<header>
 				<h1>{topic.filename}</h1>
-				<Link to={`/users/${topic.userid}`}>{topic.username}</Link>
+				<div className="meta">
+					<UserLink to={`/users/${topic.userid}`}>{topic.username}</UserLink> started it <time title={topic.timestamp} dateTime={topic.timestamp}>{moment(topic.timestamp).fromNow()}</time>.
+				</div>
 			</header>
 		);
 	}
