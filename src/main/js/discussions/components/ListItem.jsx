@@ -20,10 +20,10 @@ function ListItem ({item: {id, filename, comments, userid, username}, match}) {
 	return (
 		<div className="topic-list-item">
 			<Link to={`${match.url}/${id}`}>{filename}</Link>
-			<div>
+			<div className="meta">
 				<UserLink userid={userid}>{username}</UserLink>
+				<div>{comments} comments</div>
 			</div>
-			<div>{comments} comments</div>
 		</div>
 	);
 }

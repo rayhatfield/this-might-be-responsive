@@ -1,4 +1,10 @@
 .topic-list-item {
 	padding: 1rem 0;
 	border-bottom: 1px solid rgba(255,255,255,.1);
+
+	.meta {
+		opacity: 0.75;
+		font-size: 0.875rem;
+		line-height: 1.4;
+	}
 }
