@@ -6,7 +6,9 @@ import {
 	REQUEST_THREAD,
 	RECEIVE_THREAD,
 	POST_COMMENT_START,
-	POST_COMMENT_COMPLETE
+	POST_COMMENT_COMPLETE,
+	REQUEST_UNREAD,
+	RECEIVE_UNREAD
 } from './reducer';
 
 export const loadDiscussions = () => (
@@ -46,6 +48,19 @@ export const loadThread = (id) => (
 			.then( result => dispatch({
 				type: RECEIVE_THREAD,
 				id,
+				payload: result
+			}));
+	}
+);
+
+export const loadUnread = () => (
+	(dispatch) => {
+		dispatch({
+			type: REQUEST_UNREAD
+		});
+		getClient().getUnread()
+			.then( result => dispatch({
+				type: RECEIVE_UNREAD,
 				payload: result
 			}));
 	}

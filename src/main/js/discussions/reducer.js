@@ -3,6 +3,8 @@ export const REQUEST_DISCUSSIONS = 'REQUEST_DISCUSSIONS';
 export const RECEIVE_DISCUSSIONS = 'RECEIVE_DISCUSSIONS';
 export const REQUEST_THREAD = 'REQUEST_THREAD';
 export const RECEIVE_THREAD = 'RECEIVE_THREAD';
+export const REQUEST_UNREAD = 'REQUEST_UNREAD';
+export const RECEIVE_UNREAD = 'RECEIVE_UNREAD';
 export const POST_COMMENT_START = 'POST_COMMENT_START';
 export const POST_COMMENT_COMPLETE = 'POST_COMMENT_COMPLETE';
 
@@ -37,6 +39,21 @@ const HANDLERS = {
 				...state.commentsByThreadId,
 				[id]: payload
 			}
+		};
+	},
+
+	REQUEST_UNREAD: function(state = {}) {
+		return {
+			...state,
+			loading: true
+		};
+	},
+
+	RECEIVE_UNREAD: function (state = {}, {payload = []}) {
+		return {
+			...state,
+			loading: false,
+			unread: payload
 		};
 	},
 
