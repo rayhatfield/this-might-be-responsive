@@ -77,9 +77,9 @@ class Detail extends React.PureComponent {
 					<div className="meta">
 						<div>uploaded by <Link rel="author" to={`/users/${item.userid}`}>{item.username}</Link> <time title={item.timestamp}>{moment(item.timestamp).fromNow()}</time></div>
 						<div className="stats">
+							<Link to={`${url}/comments`}><span className="comment-count">{item.comments} comments</span></Link>
 							<span className="good">{item.vote_good}</span>
 							<span className="bad">{item.vote_bad}</span>
-							<Link to={`${url}/comments`}>comments <span className="comment-count">{item.comments}</span></Link>
 						</div>
 					</div>
 					<div className="next-prev">

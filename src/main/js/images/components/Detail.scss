@@ -21,6 +21,22 @@
 			font-size: 0.875rem;
 		}
 
+		.stats {
+			margin-top: 0.5em;
+
+			& > * {
+				margin-right: 0.5em;
+			}
+
+			.good::before {
+				content: '+ ';
+			}
+
+			.bad::before {
+				content: '- ';
+			}
+		}
+
 		.next-prev {
 			display: flex;
 			justify-content: space-between;
