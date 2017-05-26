@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {withRouter} from 'react-router';
+import cx from 'classnames';
 
 ListItem.propTypes = {
 	match: PropTypes.shape({
@@ -17,10 +18,13 @@ ListItem.propTypes = {
 	}).isRequired
 };
 
-function ListItem ({item: {id, filename, link_thumb, vote_good, vote_bad}, match}) {
+function ListItem ({item: {id, filename, link_thumb, vote_good, vote_bad, nsfw, tmbo, subscribed}, match}) {
+
+	const classes = cx('image-list-item', {nsfw, tmbo, subscribed});
+
 	return (
 		<Link to={`${match.url}/${id}`}>
-			<figure className="image-list-item">
+			<figure className={classes}>
 				<div className="thumb"><img src={link_thumb} /></div>
 				<figcaption>
 					<div className="filename">{filename}</div>
