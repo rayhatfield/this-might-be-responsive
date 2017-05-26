@@ -35,7 +35,7 @@ class Header extends React.Component {
 			<header>
 				<h1>{topic.filename}</h1>
 				<div className="meta">
-					<UserLink to={`/users/${topic.userid}`}>{topic.username}</UserLink> started it <time title={topic.timestamp} dateTime={topic.timestamp}>{moment(topic.timestamp).fromNow()}</time>.
+					<UserLink userid={topic.userid}>{topic.username}</UserLink> started it <time title={topic.timestamp} dateTime={topic.timestamp}>{moment(topic.timestamp).fromNow()}</time>.
 				</div>
 			</header>
 		);
