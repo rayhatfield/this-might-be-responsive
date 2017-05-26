@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 UserLink.propTypes = {
-	userid: PropTypes.string.isRequired
+	userid: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]).isRequired
 };
 
 export default function UserLink ({userid, ...others}) {
