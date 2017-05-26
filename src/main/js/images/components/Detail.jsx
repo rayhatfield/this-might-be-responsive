@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
 
-import {Loading, NotFound} from 'common';
+import {Loading, NotFound, ELLIPSIS_SVG} from 'common';
 
 import {getUpload} from '../actions';
 
@@ -23,7 +23,9 @@ class Detail extends React.PureComponent {
 		load: PropTypes.func.isRequired
 	}
 
-	state = {}
+	state = {
+		ellipsis: true
+	}
 
 	componentDidMount () {
 		this.setup();
@@ -43,6 +45,9 @@ class Detail extends React.PureComponent {
 		const item = items.find(i => i.id == id); // double equal because our prop is a string
 		if (item) {
 			this.setState({
+				ellipsis: true
+			}, () => setTimeout( () => this.setState({ellipsis: false, item}), 1))
+			this.setState({
 				item
 			});
 		}
@@ -53,6 +58,7 @@ class Detail extends React.PureComponent {
 
 	render () {
 		const {imagesState: {loading, items = []}, match: {url}} = this.props;
+		const {ellipsis} = this.state;
 		const id = getId(this.props);
 		const item = this.state.item || items.find(i => i.id == id);
 
@@ -79,7 +85,7 @@ class Detail extends React.PureComponent {
 					</div>
 					<NextLink currentId={id} previous />
 				</figcaption>
-				<img src={item.link_file} />
+				<img src={ellipsis ? ELLIPSIS_SVG : item.link_file} />
 			</figure>
 		);
 	}

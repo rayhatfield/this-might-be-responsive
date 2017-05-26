@@ -5,22 +5,33 @@ import {resolve} from 'url';
 
 import {keydownEvents} from 'utils';
 
+const ARROW_LEFT = 'ArrowLeft';
+const ARROW_RIGHT = 'ArrowRight';
+
 class NextLink extends React.Component {
 
 	static propTypes = {
 		currentId: PropTypes.string.isRequired,
 		previous: PropTypes.bool, // link to previous instead of next
 		images: PropTypes.array.isRequired,
-		match: PropTypes.object.isRequired // router match
+		match: PropTypes.object.isRequired, // router match
+		history: PropTypes.object.isRequired // provided by withRouter
 	}
 
-	onKeyDown = (e) => {
-		console.warn('handle key down not implemented');
+	state = {}
+
+	componentDidMount () {
+		this.setup();
 	}
 
-	render () {
+	componentWillReceiveProps (nextProps) {
+		if(nextProps.currentId !== this.props.currentId) {
+			this.setup(nextProps);
+		}
+	}
 
-		const {currentId, images, previous, match: {url}} = this.props;
+	setup(props = this.props) {
+		const {currentId, images, previous, match: {url}} = props;
 		const intId = parseInt(currentId, 10); // ids are integers in the image objects
 
 		// consider reducing to the ids array elsewhere instead of doing it every time this component renders
@@ -30,10 +41,38 @@ class NextLink extends React.Component {
 		const item = images[currentIndex + (previous ? 1 : -1)];
 
 		if (!item) {
+			this.setState({
+				item: null,
+				href: null
+			});
+		}
+		else {
+			const href = (resolve(url, `${item.id}`));
+
+			this.setState({
+				item,
+				href
+			});
+		}
+	}
+
+	onKeyDown = ({key}) => {
+		const {state: {href}, props: {history, previous}} = this;
+
+		if (href && history) {
+			if (key === ARROW_RIGHT && previous || key === ARROW_LEFT && !previous) {
+				history.push(href);
+			}
+		}
+	}
+
+	render () {
+
+		const {item, href} = this.state;
+
+		if (!href) {
 			return null;
 		}
-
-		const href = (resolve(url, `${item.id}`));
 
 		return (
 			<Link to={href}>{item.filename}</Link>
@@ -44,4 +83,4 @@ class NextLink extends React.Component {
 const mapStateToProps = ({images: {items = []}}) => ({images: items});
 
 import {connect} from 'react-redux';
-export default withRouter(connect(mapStateToProps)(keydownEvents(NextLink, 'onKeyDown', ['ArrowLeft', 'ArrowRight'])));
+export default withRouter(connect(mapStateToProps)(keydownEvents(NextLink, 'onKeyDown', [ARROW_LEFT, ARROW_RIGHT])));
