@@ -109,8 +109,10 @@ exports = module.exports = {
 			allChunks: true,
 			disable: false
 		}),
-		new webpack.optimize.UglifyJsPlugin({
-			compress: PROD
+		PROD && new webpack.optimize.UglifyJsPlugin({
+			compress: { warnings: false },
+			sourceMap: true,
+			test: /\.js(x?)($|\?)/i
 		}),
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, 'src/main/index.html')
