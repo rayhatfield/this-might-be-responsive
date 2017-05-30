@@ -13,10 +13,10 @@ import Route from './Route';
 export default function Routes () {
 	return (
 		<Switch>
-			<Route path="/login" unauthenticated component={Login} />
+			<Route path="/login/:return" unauthenticated component={Login} />
 			<Route path="/images" component={Images} />)
 			<Route path="/discussions" component={Discussions} />
-			<Route path="/logout" component={Logout} />
+			<Route path="/logout" unauthenticated component={Logout} />
 			<Route path="/about" component={About} />
 			<Route path="/users" component={Users} />
 			<Redirect from="/" to="/images"/>

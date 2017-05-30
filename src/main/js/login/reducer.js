@@ -1,7 +1,10 @@
 import {getClient} from 'utils';
 
-export const LOGIN_RESPONSE_RECEIVED = 'LOGIN_RESPONSE_RECEIVED';
 export const LOGIN_REQUEST_START = 'LOGIN_REQUEST_START';
+export const LOGIN_RESPONSE_RECEIVED = 'LOGIN_RESPONSE_RECEIVED';
+export const RESTORE_SESSION_START = 'RESTORE_SESSION_START';
+export const RESTORE_RESPONSE_RECEIVED = 'RESTORE_RESPONSE_RECEIVED';
+export const RESTORE_RESPONSE_ERROR = 'RESTORE_RESPONSE_ERROR';
 export const LOGOUT = 'LOGOUT';
 
 const HANDLERS = {
@@ -15,6 +18,30 @@ const HANDLERS = {
 		}
 		return {
 			userid
+		};
+	},
+
+	RESTORE_SESSION_START: (state = {}) => ({...state, loading: true}),
+
+	RESTORE_RESPONSE_RECEIVED: (state = {}, {response: {userid, status}}) => {
+		if (status === 401) {
+			return {
+				...state,
+				restore: 'failed'
+			};
+		}
+		return {
+			...state,
+			userid,
+			loading: false
+		};
+	},
+
+	RESTORE_RESPONSE_ERROR: (state = {}) => {
+		return {
+			...state,
+			loading: false,
+			restore: 'failed'
 		};
 	},
 

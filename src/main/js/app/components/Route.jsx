@@ -18,8 +18,14 @@ function Route ({userid, unauthenticated = false, path, component, ...other}) {
 	);
 }
 
-function AccessDenied () {
-	return <Redirect to="/login" />;
+AccessDenied.propTypes = {
+	location: PropTypes.shape({
+		pathname: PropTypes.string
+	})
+};
+
+function AccessDenied ({location: {pathname}}) {
+	return <Redirect to={`/login/${encodeURIComponent(pathname)}`} />;
 }
 
 const mapStateToProps = ({login: {userid}}) => ({userid});

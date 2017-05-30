@@ -19,7 +19,7 @@ class Logout extends React.Component {
 	render () {
 		const {userid} = this.props;
 		return (
-			userid ? <div className="logging-out">[ Logging Out ]</div> : <Redirect to="/" />
+			userid ? <div className="logging-out">[ Logging Out ]</div> : <Redirect to="/login" />
 		);
 	}
 }
