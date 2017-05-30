@@ -7,6 +7,7 @@ import {Loading, NotFound, ELLIPSIS_SVG} from 'common';
 
 import {getUpload} from '../actions';
 
+import DetailImage from './DetailImage';
 import NextLink from './NextLink';
 
 const getId = ({match}) => match.params.id;
@@ -44,12 +45,7 @@ class Detail extends React.PureComponent {
 		const {imagesState: {items = []}, load} = this.props;
 		const item = items.find(i => i.id == id); // double equal because our prop is a string
 		if (item) {
-			this.setState({
-				ellipsis: true
-			}, () => setTimeout( () => this.setState({ellipsis: false, item}), 1))
-			this.setState({
-				item
-			});
+			this.setState({item});
 		}
 		else {
 			load(id);
@@ -58,7 +54,6 @@ class Detail extends React.PureComponent {
 
 	render () {
 		const {imagesState: {loading, items = []}, match: {url}} = this.props;
-		const {ellipsis} = this.state;
 		const id = getId(this.props);
 		const item = this.state.item || items.find(i => i.id == id);
 
@@ -87,7 +82,7 @@ class Detail extends React.PureComponent {
 						<NextLink currentId={id} previous />
 					</div>
 				</figcaption>
-				<img src={ellipsis ? ELLIPSIS_SVG : item.link_file} />
+				<DetailImage src={item.link_file} />
 			</figure>
 		);
 	}
