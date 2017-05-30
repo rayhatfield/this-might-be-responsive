@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link, withRouter} from 'react-router-dom';
 import {resolve} from 'url';
+import cx from 'classnames';
 
 import {keydownEvents} from 'utils';
 
@@ -67,15 +68,17 @@ class NextLink extends React.Component {
 	}
 
 	render () {
-
+		const {previous} = this.props;
 		const {item, href} = this.state;
 
 		if (!href) {
 			return null;
 		}
 
+		const classname = previous ? 'older' : 'newer';
+
 		return (
-			<Link to={href}>{item.filename}</Link>
+			<Link to={href} className={cx('next-link', classname)}><span className="filename">{item.filename}</span></Link>
 		);
 	}
 }

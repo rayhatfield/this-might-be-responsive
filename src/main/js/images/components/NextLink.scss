@@ -1,0 +1,33 @@
+.next-link {
+	max-width: 40vw;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-decoration: none;
+	padding: 1rem;
+	position: relative;
+
+	&.newer {
+		padding-left: 2rem;
+
+		&::before {
+			content: '‹';
+			position: absolute;
+			left: 1rem;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	&.older {
+		padding-right: 2rem;
+
+		&::before {
+			content: '›';
+			position: absolute;
+			right: 1rem;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}
