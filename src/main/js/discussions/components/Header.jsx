@@ -4,6 +4,8 @@ import moment from 'moment';
 
 import {Loading, UserLink} from 'common';
 
+import {getUpload} from 'images/actions';
+
 class Header extends React.Component {
 
 	static propTypes = {
@@ -29,7 +31,11 @@ class Header extends React.Component {
 			return <Loading />;
 		}
 
-		const topic = topics.find( t => t.id == id) || {};
+		const topic = topics.find( t => t.id == id);
+
+		if (!topic) {
+			return null;
+		}
 
 		return (
 			<header>
@@ -48,7 +54,7 @@ const mapStateToProps = ({images: {items = [], loading: imagesLoading}, discussi
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	load: (id) => console.log('header:load not implemented.')
+	load: (id) => dispatch(getUpload(id))
 });
 
 import {connect} from 'react-redux';

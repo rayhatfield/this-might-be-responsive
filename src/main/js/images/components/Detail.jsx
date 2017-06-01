@@ -25,7 +25,6 @@ class Detail extends React.PureComponent {
 	}
 
 	state = {
-		ellipsis: true
 	}
 
 	componentDidMount () {
