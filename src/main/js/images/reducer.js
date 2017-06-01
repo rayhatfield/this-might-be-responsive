@@ -18,8 +18,8 @@ const receive = (state, {payload = []}) => {
 		loading: false,
 		items: payload.map( item => ({
 			...item,
-			link_file: client.resolve(item.link_file),
-			link_thumb: client.resolve(item.link_thumb)
+			link_file: item.link_file ? client.resolve(item.link_file) : null,
+			link_thumb: item.link_thumb ? client.resolve(item.link_thumb) : null
 		}))
 	};
 };
