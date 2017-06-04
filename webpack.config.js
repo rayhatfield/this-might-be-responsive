@@ -27,6 +27,7 @@ exports = module.exports = {
 	resolve: {
 		modules: [
 			path.resolve(__dirname, 'src/main/js'),
+			path.resolve(__dirname, 'src/main/resources/scss'),
 			path.resolve(__dirname, 'node_modules')
 		],
 		extensions: ['.jsx', '.js']
